@@ -9,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.pryappcursos.Interfaceapi.RetrofitCliente
 import com.example.pryappcursos.Modelo.dataDetalleCurso
 import com.example.pryappcursos.Presentador.clsDetalleCursoPresentador
 import com.example.pryappcursos.R
-
 class DetalleCursoActivity : AppCompatActivity() {
     private lateinit var presenter: clsDetalleCursoPresentador
     private lateinit var imageView: ImageView
@@ -61,7 +61,7 @@ class DetalleCursoActivity : AppCompatActivity() {
         txtDias.text = curso.dia_semana + " (" + curso.hora_inicio + " - " + curso.hora_fin + " hrs)"
 
         // URL
-        val baseUrl = "http://10.156.148.170:8080/cursos_api/"
+        val baseUrl = RetrofitCliente.BASE_URL
         val urlCompleta = baseUrl + curso.imagen_url
 
         Glide.with(this)
